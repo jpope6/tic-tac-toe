@@ -19,3 +19,25 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+#header > h1 {
+  font-size: 5em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#board {
+  height: 480px;
+  width: 480px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#board > * {
+  background: purple;
+}
