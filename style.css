@@ -9,12 +9,13 @@ body {
   width: 100vw;
   display: flex;
   flex-direction: column;
+  background: rgb(31, 31, 31);
 }
 
 #header {
   height: 15%;
   width: 100%;
-  background-color: rgb(153, 194, 181);
+  background: rgb(153, 194, 181);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,5 +40,22 @@ body {
 }
 
 #board > * {
-  background: purple;
+  height: 160px;
+  background: rgb(182, 190, 189);
+  border-radius: 10px;
+  margin: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8em;
+  cursor: pointer;
+  user-select: none;
+}
+
+#board > *:hover {
+  filter: brightness(0.8);
+}
+
+#board > *:active {
+  filter: brightness(0.6);
 }
