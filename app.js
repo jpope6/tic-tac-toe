@@ -4,6 +4,7 @@ const gameboard = (() => {
   let turn = "X";
 
   const container = document.getElementById("board");
+  let playerTurn = document.getElementById("playerTurn");
 
   const createBoard = () => {
     for (let i = 0; i < board.length; i++) {
@@ -22,8 +23,10 @@ const gameboard = (() => {
     space.textContent = turn;
     if (turn == "X") {
       turn = "O";
+      playerTurn.innerHTML = "Player O's Turn";
     } else {
       turn = "X";
+      playerTurn.innerHTML = "Player X's Turn";
     }
   };
 

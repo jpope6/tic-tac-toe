@@ -13,7 +13,7 @@ body {
 }
 
 #header {
-  height: 15%;
+  height: 12%;
   width: 100%;
   background: rgb(153, 194, 181);
   display: flex;
@@ -28,8 +28,15 @@ body {
 
 #container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#container > h1 {
+  color: whitesmoke;
+  font-size: 3em;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #board {
