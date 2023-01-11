@@ -36,6 +36,46 @@ const gameboard = (() => {
       turn = "X";
       playerTurn.innerHTML = "Player X's Turn";
     }
+
+    checkWinner();
+  };
+
+  const checkWinner = () => {
+    // check rows
+    for (let i = 0; i < 9; i += 3) {
+      if (
+        board[i] &&
+        board[i] == board[i + 1] &&
+        board[i + 1] == board[i + 2]
+      ) {
+        playerTurn.innerHTML = "WINNER";
+        return;
+      }
+    }
+
+    // check cols
+    for (let i = 0; i < 3; i++) {
+      if (
+        board[i] &&
+        board[i] == board[i + 3] &&
+        board[i + 3] == board[i + 6]
+      ) {
+        playerTurn.innerHTML = "WINNER";
+        return;
+      }
+    }
+
+    // check diagonals
+    if (
+      (board[0] == board[4] && board[4] == board[8]) ||
+      (board[2] == board[4] && board[4] == board[6])
+    ) {
+      // make sure that it is not announcing winner when all spaces are empty
+      if (board[4]) {
+        playerTurn.innerHTML = "WINNER";
+        return;
+      }
+    }
   };
 
   // reset button will clear the board
@@ -52,9 +92,3 @@ const gameboard = (() => {
 })();
 
 gameboard.createBoard();
-
-// factory function for player class
-const Player = (symbol) => {
-  const getSymbol = () => symbol;
-  return { symbol };
-};
