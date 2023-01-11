@@ -2,6 +2,7 @@
 const gameboard = (() => {
   let board = ["", "", "", "", "", "", "", "", ""];
   let turn = "X";
+  let winner = false;
 
   const container = document.getElementById("board");
   let playerTurn = document.getElementById("playerTurn");
@@ -27,6 +28,10 @@ const gameboard = (() => {
       return;
     }
 
+    if (winner) {
+      return;
+    }
+
     dict[index].textContent = turn;
     board[index] = turn;
     if (turn == "X") {
@@ -49,6 +54,7 @@ const gameboard = (() => {
         board[i + 1] == board[i + 2]
       ) {
         playerTurn.innerHTML = "WINNER";
+        winner = true;
         return;
       }
     }
@@ -61,6 +67,7 @@ const gameboard = (() => {
         board[i + 3] == board[i + 6]
       ) {
         playerTurn.innerHTML = "WINNER";
+        winner = true;
         return;
       }
     }
@@ -73,6 +80,19 @@ const gameboard = (() => {
       // make sure that it is not announcing winner when all spaces are empty
       if (board[4]) {
         playerTurn.innerHTML = "WINNER";
+        winner = true;
+        return;
+      }
+    }
+
+    // check for tie
+    for (let i = 0; i < 9; i++) {
+      if (board[i] == "") {
+        break;
+      }
+
+      if (i == 8) {
+        playerTurn.innerHTML = "TIE";
         return;
       }
     }
@@ -85,6 +105,7 @@ const gameboard = (() => {
       dict[i].textContent = "";
       turn = "X";
       playerTurn.innerHTML = "Player X's Turn";
+      winner = false;
     }
   };
 
