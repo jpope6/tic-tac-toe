@@ -7,6 +7,9 @@ const gameboard = (() => {
   let playerTurn = document.getElementById("playerTurn");
   let resetButton = document.getElementById("reset");
 
+  resetButton.addEventListener("click", () => resetBoard());
+
+  // dictionary maps index in array to corresponding div
   let dict = {};
 
   const createBoard = () => {
@@ -36,7 +39,14 @@ const gameboard = (() => {
   };
 
   // reset button will clear the board
-  const resetBoard = () => {};
+  const resetBoard = () => {
+    for (let i = 0; i < board.length; i++) {
+      board[i] = "";
+      dict[i].textContent = "";
+      turn = "X";
+      playerTurn.innerHTML = "Player X's Turn";
+    }
+  };
 
   return { board, createBoard };
 })();
